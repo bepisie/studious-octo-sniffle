@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web OS</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="taskbar">
+        <div class="taskbar-item">Finder</div>
+        <div class="taskbar-item">Upload</div>
+        <div class="taskbar-item">Downloads</div>
+    </div>
+
+    <div class="container">
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload File</button>
+
+        <div id="folderContent">
+            <!-- Folder content will be dynamically populated here -->
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
