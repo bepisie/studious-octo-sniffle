@@ -18,7 +18,7 @@ function uploadFile() {
     .then(response => response.text())
     .then(data => {
         alert(data);
-        loadFolderContents(); // Refresh folder contents
+        loadFolderContents(); // Refresh folder contents after upload
     })
     .catch(error => console.error('Error:', error));
 }
@@ -28,14 +28,27 @@ function loadFolderContents() {
     .then(response => response.json())
     .then(files => {
         const folderContentDiv = document.getElementById('folderContent');
-        folderContentDiv.innerHTML = '';
+        folderContentDiv.innerHTML = '<ul>';
         files.forEach(file => {
-            const fileElement = document.createElement('div');
-            fileElement.textContent = file;
-            folderContentDiv.appendChild(fileElement);
+            folderContentDiv.innerHTML += `<li><a href="/download/${file}" download>${file}</a></li>`;
         });
+        folderContentDiv.innerHTML += '</ul>';
     })
     .catch(error => console.error('Error:', error));
+    
+    // Fetch VM capacity information
+    fetch('/vm_info')
+    .then(response => response.json())
+    .then(data => {
+        const vmInfoDiv = document.getElementById('vmInfo');
+        vmInfoDiv.innerHTML = `
+            <strong>Capacity:</strong><br>
+            Total: ${data.total} GB<br>
+            Used: ${data.used} GB<br>
+            Free: ${data.free} GB
+        `;
+    })
+    .catch(error => console.error('Error fetching VM info:', error));
 }
 
 window.onload = loadFolderContents;

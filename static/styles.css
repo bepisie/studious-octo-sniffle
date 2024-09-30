@@ -1,38 +1,61 @@
 /* static/styles.css */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #f06, yellow);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.taskbar {
-    display: flex;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: white;
-}
-
-.taskbar-item {
-    margin: 0 20px;
-    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: white;
 }
 
 .container {
     padding: 20px;
 }
 
+.btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    margin-top: 10px;
+}
+
+.file-input {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 #folderContent {
     margin-top: 20px;
+}
+
+#folderContent ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+}
+
+#folderContent li {
+    margin: 5px 0;
+}
+
+#folderContent a {
+    color: #3498db; /* Blue for links */
+    text-decoration: none;
+}
+
+#folderContent a:hover {
+    text-decoration: underline;
+}
+
+#vmInfo {
+    margin-top: 30px;
+    font-size: 16px;
 }
